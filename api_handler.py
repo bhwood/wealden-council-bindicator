@@ -1,4 +1,5 @@
 import requests
+import json
 
 def get_collection_data(uprn):
     url = "https://www.wealden.gov.uk/wp-admin/admin-ajax.php"
@@ -13,4 +14,9 @@ def get_collection_data(uprn):
 
 
     response = requests.post(url, headers=headers, data=data)
-    return response
+    try:
+        json_data = response.json()
+        return json_data
+
+    except json.JSONDecodeError:
+        print("Response is not in JSON format")
