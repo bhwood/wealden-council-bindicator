@@ -31,4 +31,3 @@
    ```bash
    python main.py
    ```
-   (assuming the main script is named `main.py`).
